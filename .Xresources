@@ -1,0 +1,23 @@
+! Fonts {{{
+Xft.antialias: true
+Xft.hinting:   true
+Xft.rgba:      rgb
+Xft.hintstyle: hintfull
+Xft.dpi:       200
+! }}}
+
+
+
+URxvt*font: xft:xos4 Terminus:style=regular:size=12, \
+	    xft:Gohu GohuFont:style=regular:pixelsize=14, \
+	    xft:GohuFont:style=Regular:pixelsize=12, \
+            xft:lucy tewi2a:style=Regular:pixelsize=12, \
+            xft:NotoSansMono-Black:pixelsize=12, \
+            xft:Noto Color Emoji:style=Regular
+URxvt.depth: 32
+!!!URxvt.background: rgba:3f11/3f11/3f11/3f00
+!URxvt.background: [70]#383c4a
+URxvt.internalBorder: 40
+!URxvt.foreground: #ffffff
+URxvt.scrollBar: false
+URxvt.cursorBlink: 1

@@ -1,0 +1,248 @@
+# bdelphin's i3 config file (v4)
+# HiDPi version
+# Please see https://i3wm.org/docs/userguide.html for a complete reference!
+
+set $mod Mod4
+
+# This font is widely installed, provides lots of unicode glyphs, right-to-left
+# text rendering and scalability on retina/hidpi displays (thanks to pango).
+font pango:DejaVu Sans Mono 8
+
+# Use Mouse+$mod to drag floating windows to their wanted position
+floating_modifier $mod
+
+# start a terminal
+bindsym $mod+Return exec i3-sensible-terminal
+
+# lock screen
+bindsym $mod+l exec --no-startup-id ~/scripts/lockscript/lock -n
+
+# capture screen selected area
+bindsym --release $mod+Shift+c exec --no-startup-id /home/baptiste/scripts/screenshot_select_wrapper.sh
+
+
+# start file manager
+bindsym $mod+e exec thunar
+
+# kill focused window
+bindsym $mod+Shift+q kill
+
+# start dmenu (a program launcher)
+#bindsym $mod+d exec dmenu_run
+bindsym $mod+d exec rofi -show drun -theme custom
+bindsym $mod+Tab exec rofi -show window -theme custom
+
+# There also is the (new) i3-dmenu-desktop which only displays applications
+# shipping a .desktop file. It is a wrapper around dmenu, so you need that
+# installed.
+# bindsym $mod+d exec --no-startup-id i3-dmenu-desktop
+
+# change focus
+#bindsym $mod+j focus left
+#bindsym $mod+k focus down
+#bindsym $mod+l focus up
+#bindsym $mod+semicolon focus right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# move focused window
+bindsym $mod+Shift+j move left
+bindsym $mod+Shift+k move down
+bindsym $mod+Shift+l move up
+bindsym $mod+Shift+semicolon move right
+
+# alternatively, you can use the cursor keys:
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# split in horizontal orientation
+bindsym $mod+h split h
+
+# split in vertical orientation
+bindsym $mod+v split v
+
+# enter fullscreen mode for the focused container
+bindsym $mod+f fullscreen toggle
+
+# shutdown with rofi-power
+bindsym $mod+s exec ~/scripts/rofi_power_menu.sh
+
+# open messenger
+bindsym $mod+m exec firefox --new-window messenger.com
+
+# change container layout (stacked, tabbed, toggle split)
+#bindsym $mod+s layout stacking
+#bindsym $mod+w layout tabbed
+#bindsym $mod+e layout toggle split
+
+# toggle tiling / floating
+bindsym $mod+Shift+space floating toggle
+
+# change focus between tiling / floating windows
+bindsym $mod+space focus mode_toggle
+
+# focus the parent container
+bindsym $mod+a focus parent
+
+# Display mode switcher
+bindsym $mod+p exec ~/scripts/rofi_display_mode.sh
+
+# focus the child container
+#bindsym $mod+d focus child
+
+# Define names for default workspaces for which we configure key bindings later on.
+# We use variables to avoid repeating the names in multiple places.
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+workspace $ws1 output eDP1
+workspace $ws2 output eDP1
+workspace $ws3 output eDP1
+workspace $ws4 output eDP1
+workspace $ws5 output eDP1
+workspace $ws6 output HDMI1
+workspace $ws7 output HDMI1
+workspace $ws8 output HDMI1
+workspace $ws9 output HDMI1
+workspace $ws10 output HDMI1
+
+# switch to workspace
+bindsym $mod+1 workspace $ws1
+bindsym $mod+2 workspace $ws2
+bindsym $mod+3 workspace $ws3
+bindsym $mod+4 workspace $ws4
+bindsym $mod+5 workspace $ws5
+bindsym $mod+6 workspace $ws6
+bindsym $mod+7 workspace $ws7
+bindsym $mod+8 workspace $ws8
+bindsym $mod+9 workspace $ws9
+bindsym $mod+0 workspace $ws10
+
+# move focused container to workspace
+bindsym $mod+Shift+1 move container to workspace $ws1
+bindsym $mod+Shift+2 move container to workspace $ws2
+bindsym $mod+Shift+3 move container to workspace $ws3
+bindsym $mod+Shift+4 move container to workspace $ws4
+bindsym $mod+Shift+5 move container to workspace $ws5
+bindsym $mod+Shift+6 move container to workspace $ws6
+bindsym $mod+Shift+7 move container to workspace $ws7
+bindsym $mod+Shift+8 move container to workspace $ws8
+bindsym $mod+Shift+9 move container to workspace $ws9
+bindsym $mod+Shift+0 move container to workspace $ws10
+
+# reload the configuration file
+#bindsym $mod+Shift+c reload
+# restart i3 inplace (preserves your layout/session, can be used to upgrade i3)
+bindsym $mod+Shift+r restart
+# exit i3 (logs you out of your X session)
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# calculator
+bindsym $mod+* exec "deepin-calculator"
+
+# resize window (you can also use the mouse for that)
+mode "resize" {
+        # These bindings trigger as soon as you enter the resize mode
+
+        # Pressing left will shrink the window’s width.
+        # Pressing right will grow the window’s width.
+        # Pressing up will shrink the window’s height.
+        # Pressing down will grow the window’s height.
+        bindsym j resize shrink width 10 px or 10 ppt
+        bindsym k resize grow height 10 px or 10 ppt
+        bindsym l resize shrink height 10 px or 10 ppt
+        bindsym semicolon resize grow width 10 px or 10 ppt
+
+        # same bindings, but for the arrow keys
+        bindsym Left resize shrink width 10 px or 10 ppt
+        bindsym Down resize grow height 10 px or 10 ppt
+        bindsym Up resize shrink height 10 px or 10 ppt
+        bindsym Right resize grow width 10 px or 10 ppt
+
+        # back to normal: Enter or Escape or $mod+r
+        bindsym Return mode "default"
+        bindsym Escape mode "default"
+        bindsym $mod+r mode "default"
+}
+
+bindsym $mod+r mode "resize"
+
+
+# startup
+#exec --no-startup-id nitrogen --restore
+#exec --no-startup-id compton -b
+exec --no-startup-id wal -R 
+
+# dunst
+# not working :'(
+exec_always --no-startup-id $HOME/.config/dunst/wal_dunst.sh
+
+
+# exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.config/i3/ws_clock.json'"
+# exec --no-startup-id urxvt -e sh -c "~/scripts/date.sh; bash"
+# exec --no-startup-id "i3-msg 'workspace 2; append_layout ~/.config/i3/ws_clock.json'"
+# exec --no-startup-id urxvt -e sh -c "~/scripts/date.sh; bash"
+# exec --no-startup-id "i3-msg 'workspace 3; append_layout ~/.config/i3/ws_clock.json'"
+# exec --no-startup-id urxvt -e sh -c "~/scripts/date.sh; bash"
+# exec --no-startup-id "i3-msg 'workspace 4; append_layout ~/.config/i3/ws_clock.json'"
+# exec --no-startup-id urxvt -e sh -c "~/scripts/date.sh; bash"
+# exec --no-startup-id "i3-msg 'workspace 5; append_layout ~/.config/i3/ws_clock.json'"
+# exec --no-startup-id urxvt -e sh -c "~/scripts/date.sh; bash"
+# exec --no-startup-id "i3-msg 'workspace 6; append_layout ~/.config/i3/ws_clock.json'"
+# exec --no-startup-id urxvt -e sh -c "~/scripts/date.sh; bash"
+# exec --no-startup-id "i3-msg 'workspace 7; append_layout ~/.config/i3/ws_clock.json'"
+# exec --no-startup-id urxvt -e sh -c "~/scripts/date.sh; bash"
+# exec --no-startup-id "i3-msg 'workspace 8; append_layout ~/.config/i3/ws_clock.json'"
+# exec --no-startup-id urxvt -e sh -c "~/scripts/date.sh; bash"
+#
+#
+# exec --no-startup-id i3-msg 'workspace $ws1; exec ~/scripts/invis.sh &'
+# exec --no-startup-id i3-msg 'workspace $ws2; exec ~/scripts/invis.sh &; workspace $ws1'
+# exec --no-startup-id i3-msg 'workspace $ws3; exec ~/scripts/invis.sh &; workspace $ws1'
+#
+
+exec --no-startup-id xbindkeys --poll-rc
+
+# POLYBAR
+exec_always --no-startup-id $HOME/.config/polybar/launch.sh
+
+# compton
+exec_always --no-startup-id $HOME/.config/launch_compton.sh
+
+# THUNAR FLOATING
+for_window [class="Thunar" instance="thunar"] floating enable
+
+# PAVUCONTROL
+for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
+
+
+ 
+gaps inner 32
+gaps outer 0
+
+gaps bottom 32
+
+default_border pixel 2
+# class                 border  backgr. text    indicator child_border
+client.focused          #D3822C #D3822C #ffffff #D3822C   #D3822C
+client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+
+client.urgent           #2f343a #900000 #ffffff #900000   #900000
+client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
+
+client.background       #ffffff
