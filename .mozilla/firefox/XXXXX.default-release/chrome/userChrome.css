@@ -1,0 +1,68 @@
+:root {
+--bg-color: #714C53;
+}
+
+#back-button, #bookmark-button, #reload-button, #home-button, #forward-button, #identity-box {
+  display: none;
+}
+
+#nav-bar {
+  background-color: var(--bg-color) !important;
+  color: #FFFFFF !important;
+  font-family: "xos4 Terminus" Medium !important;
+  font-size: 15px;
+  padding-top: 2px !important;
+  padding-bottom: 2px !important;
+  padding-left: 10px !important;
+}
+
+#navigator-toolbox {
+  background-color: transparent !important;
+  border-bottom-width: 0 !important;
+}
+
+#urlbar, .searchbar-textbox {
+  background-color: transparent !important;
+  border: none !important;
+  box-shadow: none !important;
+  color: #FFFFFF !important;
+}
+
+.tabbrowser-tab::after,
+.tabbrowser-tab::before {
+    border: none !important;
+    color: grey !important;
+    opacity: .2 !important;
+}
+
+.tabbrowser-tab[visuallyselected="true"] {
+  background-color: var(--bg-color) !important;
+  color: inherit !important; /* Use background tab text color for foreground tabs */
+}
+
+.tab-background {
+  border-top-width: 0 !important;
+}
+
+.tab-background[selected=true] {
+  background-color: transparent !important; [> Make selected tab bg transparent <] 
+  background-image: none !important;
+}
+
+.tab-content {
+  padding: 6px 10px 7px 10px !important;
+}
+
+.tab-icon-image {
+  size: 32px;
+}
+
+.tab-line {
+  display: none;
+  -moz-box-ordinal-group: 2; /* Move the line to the bottom */
+}
+
+.tab-text {
+  font-family: "xos4 Terminus" Medium !important;
+  font-size: 13px;
+}
