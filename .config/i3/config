@@ -15,14 +15,15 @@ floating_modifier $mod
 bindsym $mod+Return exec i3-sensible-terminal
 
 # lock screen
-bindsym $mod+l exec --no-startup-id ~/scripts/lockscript/lock -n
+#bindsym $mod+l exec --no-startup-id ~/scripts/lockscript/lock -n
 
 # capture screen selected area
-bindsym --release $mod+Shift+c exec --no-startup-id /home/baptiste/scripts/screenshot_select_wrapper.sh
-
+#bindsym --release $mod+Shift+c exec --no-startup-id /home/baptiste/scripts/screenshot_select_wrapper.sh
+bindsym --release $mod+Shift+c exec --no-startup-id /home/baptiste/scripts/screenshot_select.sh
 
 # start file manager
-bindsym $mod+e exec thunar
+#bindsym $mod+e exec thunar
+bindsym $mod+e exec nemo
 
 # kill focused window
 bindsym $mod+Shift+q kill
@@ -98,27 +99,27 @@ bindsym $mod+p exec ~/scripts/rofi_display_mode.sh
 
 # Define names for default workspaces for which we configure key bindings later on.
 # We use variables to avoid repeating the names in multiple places.
-set $ws1 "1"
-set $ws2 "2"
-set $ws3 "3"
-set $ws4 "4"
-set $ws5 "5"
-set $ws6 "6"
-set $ws7 "7"
-set $ws8 "8"
-set $ws9 "9"
-set $ws10 "10"
+set $ws1 "1:"
+set $ws2 "2:"
+set $ws3 "3:"
+set $ws4 "4:"
+set $ws5 "5:"
+set $ws6 "6:"
+set $ws7 "7:"
+set $ws8 "8:"
+set $ws9 "9:"
+set $ws10 "10:"
 
-workspace $ws1 output eDP1
-workspace $ws2 output eDP1
-workspace $ws3 output eDP1
-workspace $ws4 output eDP1
-workspace $ws5 output eDP1
-workspace $ws6 output HDMI1
-workspace $ws7 output HDMI1
-workspace $ws8 output HDMI1
-workspace $ws9 output HDMI1
-workspace $ws10 output HDMI1
+workspace $ws1 output DVI-I-1
+workspace $ws2 output DVI-I-1
+workspace $ws3 output DVI-I-1
+workspace $ws4 output DVI-I-1
+workspace $ws5 output DVI-I-1
+workspace $ws6 output DVI-I-1
+workspace $ws7 output DP-1
+workspace $ws8 output DP-1
+workspace $ws9 output DP-1
+workspace $ws10 output DP-1
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -152,7 +153,7 @@ bindsym $mod+Shift+r restart
 bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'You pressed the exit shortcut. Do you really want to exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
 
 # calculator
-bindsym $mod+* exec "deepin-calculator"
+#bindsym $mod+* exec "deepin-calculator"
 
 # resize window (you can also use the mouse for that)
 mode "resize" {
@@ -185,62 +186,49 @@ bindsym $mod+r mode "resize"
 # startup
 #exec --no-startup-id nitrogen --restore
 #exec --no-startup-id compton -b
+
+# DEPRECATED ?
 exec --no-startup-id wal -R 
 
+# remove border when not in focus
+#exec --no-startup-id python $HOME/scripts/ipc_i3_noBordersUnfocused.py
+
 # dunst
-# not working :'(
-exec_always --no-startup-id $HOME/.config/dunst/wal_dunst.sh
+#exec_always --no-startup-id $HOME/.config/dunst/wal_dunst.sh
 
-
-# exec --no-startup-id "i3-msg 'workspace 1; append_layout ~/.config/i3/ws_clock.json'"
-# exec --no-startup-id urxvt -e sh -c "~/scripts/date.sh; bash"
-# exec --no-startup-id "i3-msg 'workspace 2; append_layout ~/.config/i3/ws_clock.json'"
-# exec --no-startup-id urxvt -e sh -c "~/scripts/date.sh; bash"
-# exec --no-startup-id "i3-msg 'workspace 3; append_layout ~/.config/i3/ws_clock.json'"
-# exec --no-startup-id urxvt -e sh -c "~/scripts/date.sh; bash"
-# exec --no-startup-id "i3-msg 'workspace 4; append_layout ~/.config/i3/ws_clock.json'"
-# exec --no-startup-id urxvt -e sh -c "~/scripts/date.sh; bash"
-# exec --no-startup-id "i3-msg 'workspace 5; append_layout ~/.config/i3/ws_clock.json'"
-# exec --no-startup-id urxvt -e sh -c "~/scripts/date.sh; bash"
-# exec --no-startup-id "i3-msg 'workspace 6; append_layout ~/.config/i3/ws_clock.json'"
-# exec --no-startup-id urxvt -e sh -c "~/scripts/date.sh; bash"
-# exec --no-startup-id "i3-msg 'workspace 7; append_layout ~/.config/i3/ws_clock.json'"
-# exec --no-startup-id urxvt -e sh -c "~/scripts/date.sh; bash"
-# exec --no-startup-id "i3-msg 'workspace 8; append_layout ~/.config/i3/ws_clock.json'"
-# exec --no-startup-id urxvt -e sh -c "~/scripts/date.sh; bash"
-#
-#
-# exec --no-startup-id i3-msg 'workspace $ws1; exec ~/scripts/invis.sh &'
-# exec --no-startup-id i3-msg 'workspace $ws2; exec ~/scripts/invis.sh &; workspace $ws1'
-# exec --no-startup-id i3-msg 'workspace $ws3; exec ~/scripts/invis.sh &; workspace $ws1'
-#
-
-exec --no-startup-id xbindkeys --poll-rc
+#exec --no-startup-id xbindkeys --poll-rc
 
 # POLYBAR
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 
 # compton
-exec_always --no-startup-id $HOME/.config/launch_compton.sh
+exec_always --no-startup-id $HOME/.config/picom/launch.sh
 
 # THUNAR FLOATING
-for_window [class="Thunar" instance="thunar"] floating enable
+#for_window [class="Thunar" instance="thunar"] floating enable
+# NEMO FLOATING
+for_window [class="Nemo" instance="nemo"] floating enable
 
 # PAVUCONTROL
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
 
-
- 
-gaps inner 32
+# GAPS
+gaps inner 20
 gaps outer 0
+#gaps bottom 32
 
-gaps bottom 32
+# I3STATUS
+#bar {
+#	status_command i3status
+#}
+
+set_from_resource $darkred color1 #000000
 
 default_border pixel 2
 # class                 border  backgr. text    indicator child_border
-client.focused          #D3822C #D3822C #ffffff #D3822C   #D3822C
-client.focused_inactive #333333 #5f676a #ffffff #484e50   #5f676a
-client.unfocused        #333333 #222222 #888888 #292d2e   #222222
+client.focused          $darkred #D3822C #ffffff #D3822C   #D3822C
+client.focused_inactive #00333333 #5f676a #ffffff #484e50   #5f676a
+client.unfocused        #00333333 #222222 #888888 #292d2e   #222222
 
 client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
