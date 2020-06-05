@@ -5,7 +5,7 @@
  */
 
 * {
-    walgen: #714C53;
+    walgen: #AC3600;
     selected-normal-foreground:  rgba ( 51, 51, 51, 100 % );
     foreground:                  @walgen;
     /* foreground:                  rgba ( 241, 233, 229, 100 % ); */
@@ -46,7 +46,7 @@
     background-color: @background;
     border:           0;
     padding:          0;
-    font:             "lucy tewi2a regular 18";
+    font:             "lucy tewi2a regular 9";
 }
 #mainbox {
     border:  0;
