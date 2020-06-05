@@ -1,0 +1,99 @@
+[module/sep]
+type = custom/text
+
+content-background = ${colors.background-alt}
+content-foreground = ${colors.foreground}
+content-overline = ${colors.line}
+content = " | "
+
+[module/decor-glyph]
+type = custom/text
+content-background = ${colors.transparent}
+content-foreground = ${colors.background-alt}
+content-overline = ${colors.line}
+
+[module/left-end-top]
+inherit = module/decor-glyph
+content = "%{T3} %{T-}"
+
+[module/right-end-top]
+inherit = module/decor-glyph
+content = "%{T3}   %{T-}"
+
+[module/left-end-bottom]
+inherit = module/decor-glyph
+content = "%{T3} %{T-}"
+
+[module/right-end-bottom]
+inherit = module/decor-glyph
+content = "%{T3} %{T-}"
+
+[module/mute_mic]
+type = custom/script
+exec = ~/.config/polybar/scripts/mute_mic.sh interactive
+click-left = ~/.config/polybar/scripts/mute_mic.sh toggle
+format-background = ${colors.background-alt}
+format-foreground = ${colors.foreground}
+format-overline = ${colors.line}
+tail = true
+interval = 5
+
+[module/updates]
+type = custom/script
+
+; Available tokens:
+;   %counter%
+; Command to be executed (using "/usr/bin/env sh -c [command]")
+exec = ~/.config/polybar/scripts/updates.sh
+
+; Conditional command that, if defined, needs to exit successfully
+; before the main exec command is invoked.
+; Default: ""
+;;exec-if = ""
+
+; Will the script output continous content?
+; Default: false
+tail = true
+
+; Seconds to sleep between updates
+; Default: 2 (0 if `tail = true`)
+interval = 5
+
+; Available tags:
+;   <output> - deprecated
+;   <label> (default)
+;;format = <label>
+format-background = ${colors.background-alt}
+format-foreground = ${colors.foreground}
+format-overline = ${colors.line}
+;format-padding = 1
+
+; Available tokens:
+;   %output%
+; Default: %output%
+;;label = %output:0:15:...%
+
+; Available tokens:
+;   %counter%
+;   %pid%
+;
+; "click-(left|middle|right)" will be executed using "/usr/bin/env sh -c [command]"
+click-left = urxvt -e sudo pacman -Syu
+;;click-left = ~/.config/polybar/scripts/lupdates &
+;;click-middle = ~/.config/polybar/scripts/lupdates &
+;;click-right = ~/.config/polybar/scripts/lupdates &
+;;double-click-left = echo double left %counter%
+;;double-click-middle = echo double middle %counter%
+;;double-click-right = echo double right %counter%
+
+; Available tokens:
+;   %counter%
+;   %pid%
+;
+; "scroll-(up|down)" will be executed using "/usr/bin/env sh -c [command]"
+;;scroll-up = echo scroll up %counter%
+;;scroll-down = echo scroll down %counter%
+
+;; _-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_-_
+;
+; vim:ft=dosini
