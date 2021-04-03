@@ -74,7 +74,7 @@ hide_duplicates_count = yes
 # The width can be negative.  In this case the actual width is the
 # screen width minus the width defined in within the geometry option.
 #geometry = "250x50-40+40"
-geometry = "650x50-49+49"
+geometry = "650x50-49+50"
 
 # Shrink window if it's smaller than the width.  Will be ignored if
 # width is 0.
@@ -185,21 +185,21 @@ context = ctrl+shift+period
 [urgency_low]
 # IMPORTANT: colors have to be defined in quotation marks.
 # Otherwise the "#" and following would be interpreted as a comment.
-background = "#714C53" 
-foreground = "#e5cbc1" 
-frame_color = "#714C53" 
+background = "#0092f7" 
+foreground = "#cacee6" 
+frame_color = "#0092f7" 
 timeout = 8
 
 [urgency_normal]
-background = "#714C53" 
-foreground = "#e5cbc1" 
-frame_color = "#714C53" 
+background = "#0092f7" 
+foreground = "#cacee6" 
+frame_color = "#0092f7" 
 timeout = 10
 
 [urgency_critical]
-background = "#714C53" 
-foreground = "#e5cbc1" 
-frame_color = "#714C53" 
+background = "#0092f7" 
+foreground = "#cacee6" 
+frame_color = "#0092f7" 
 timeout = 15
 icon = "~/.config/dunst/this_is_fine.png"
 

@@ -16,6 +16,7 @@ bindsym $mod+Return exec i3-sensible-terminal
 
 # lock screen
 #bindsym $mod+l exec --no-startup-id ~/scripts/lockscript/lock -n
+bindsym $mod+l exec betterlockscreen --lock blur
 
 # capture screen selected area
 #bindsym --release $mod+Shift+c exec --no-startup-id /home/baptiste/scripts/screenshot_select_wrapper.sh
@@ -86,13 +87,16 @@ bindsym $mod+m exec firefox --new-window messenger.com
 bindsym $mod+Shift+space floating toggle
 
 # change focus between tiling / floating windows
-bindsym $mod+space focus mode_toggle
+#bindsym $mod+space focus mode_toggle
+
+# wali v2
+bindsym $mod+space exec ~/scripts/wali_v2 -i ~/Images/Wallpapers/ultrawide/selection -a 80 --saturate 1.0
 
 # focus the parent container
 bindsym $mod+a focus parent
 
 # Display mode switcher
-bindsym $mod+p exec ~/scripts/rofi_display_mode.sh
+bindsym $mod+p exec ~/scripts/rofi_display_mode_desk.sh
 
 # focus the child container
 #bindsym $mod+d focus child
@@ -110,16 +114,24 @@ set $ws8 "8:"
 set $ws9 "9:"
 set $ws10 "10:"
 
-workspace $ws1 output DVI-I-1
-workspace $ws2 output DVI-I-1
-workspace $ws3 output DVI-I-1
-workspace $ws4 output DVI-I-1
-workspace $ws5 output DVI-I-1
-workspace $ws6 output DVI-I-1
-workspace $ws7 output DP-1
-workspace $ws8 output DP-1
-workspace $ws9 output DP-1
-workspace $ws10 output DP-1
+set $ws11 "11"
+set $ws12 "12"
+
+workspace $ws1 output DisplayPort-2
+workspace $ws2 output DisplayPort-2
+workspace $ws3 output DisplayPort-2
+workspace $ws4 output DisplayPort-2
+
+workspace $ws5 output DisplayPort-0
+workspace $ws6 output DisplayPort-0
+workspace $ws7 output DisplayPort-0
+workspace $ws8 output DisplayPort-0
+
+workspace $ws9 output DisplayPort-1
+workspace $ws10 output DisplayPort-1
+workspace $ws11 output DisplayPort-1
+workspace $ws12 output DisplayPort-1
+
 
 # switch to workspace
 bindsym $mod+1 workspace $ws1
@@ -133,6 +145,9 @@ bindsym $mod+8 workspace $ws8
 bindsym $mod+9 workspace $ws9
 bindsym $mod+0 workspace $ws10
 
+bindsym $mod+minus workspace $ws11
+bindsym $mod+equal workspace $ws12
+
 # move focused container to workspace
 bindsym $mod+Shift+1 move container to workspace $ws1
 bindsym $mod+Shift+2 move container to workspace $ws2
@@ -144,6 +159,9 @@ bindsym $mod+Shift+7 move container to workspace $ws7
 bindsym $mod+Shift+8 move container to workspace $ws8
 bindsym $mod+Shift+9 move container to workspace $ws9
 bindsym $mod+Shift+0 move container to workspace $ws10
+
+bindsym $mod+Shift+minus move container to workspace $ws11
+bindsym $mod+Shift+equal move container to workspace $ws12
 
 # reload the configuration file
 #bindsym $mod+Shift+c reload
@@ -187,14 +205,15 @@ bindsym $mod+r mode "resize"
 #exec --no-startup-id nitrogen --restore
 #exec --no-startup-id compton -b
 
-# DEPRECATED ?
-exec --no-startup-id wal -R 
+# wal restore
+# exec --no-startup-id wal -R -n
+exec --no-startup-id $HOME/scripts/wali_v2_restore -R -n
 
 # remove border when not in focus
 #exec --no-startup-id python $HOME/scripts/ipc_i3_noBordersUnfocused.py
 
 # dunst
-#exec_always --no-startup-id $HOME/.config/dunst/wal_dunst.sh
+exec_always --no-startup-id $HOME/.config/dunst/wal_dunst.sh
 
 #exec --no-startup-id xbindkeys --poll-rc
 
@@ -204,13 +223,26 @@ exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 # compton
 exec_always --no-startup-id $HOME/.config/picom/launch.sh
 
+# feh multiscreen
+exec_always --no-startup-id $HOME/scripts/feh_ultrawide.sh
+
 # THUNAR FLOATING
 #for_window [class="Thunar" instance="thunar"] floating enable
+
 # NEMO FLOATING
 for_window [class="Nemo" instance="nemo"] floating enable
 
 # PAVUCONTROL
 for_window [class="Pavucontrol" instance="pavucontrol"] floating enable
+
+# GNOME-CALC
+for_window [class="Gnome-calculator" instance="gnome-calculator"] floating enable
+
+# ANDROID_EMULATOR
+for_window [title="^Android Emulator - Pixel_3_API_29:5554$"] floating enable
+
+# ARDUINO SERIAL MONITOR
+for_window [class="processing-app-Base" title="/dev/ttyUSB0"] floating enable
 
 # GAPS
 gaps inner 20
@@ -226,7 +258,8 @@ set_from_resource $darkred color1 #000000
 
 default_border pixel 2
 # class                 border  backgr. text    indicator child_border
-client.focused          $darkred #D3822C #ffffff #D3822C   #D3822C
+#client.focused          $darkred #D3822C #ffffff #D3822C   #D3822C
+client.focused          $darkred $darkred #ffffff $darkred   $darkred
 client.focused_inactive #00333333 #5f676a #ffffff #484e50   #5f676a
 client.unfocused        #00333333 #222222 #888888 #292d2e   #222222
 

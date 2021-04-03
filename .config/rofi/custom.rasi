@@ -5,7 +5,7 @@
  */
 
 * {
-    walgen: #AC3600;
+    walgen: #0092f7;
     selected-normal-foreground:  rgba ( 51, 51, 51, 100 % );
     foreground:                  @walgen;
     /* foreground:                  rgba ( 241, 233, 229, 100 % ); */

@@ -13,7 +13,7 @@ MUTED_ICON=""
 get_default_source_index() { INDEX=$(pacmd list-sources | grep "*" | awk '{ print $3 }' | tr '\n' '\0'); }
 
 # return if default pulseaudio source is muted or not (yes ou no)
-get_mute_status() { STATUS=$(pacmd list-sources | awk 'BEGIN{f=0} /* index:/{f=2} f{print}' | grep "muted:" | awk '{ print $2 }'); }
+get_mute_status() { STATUS=$(pacmd list-sources | awk 'BEGIN{f=0} /* index:/{f=2} f{print}' | grep "muted:" | awk '{ print $2 }' | head -n 1); }
 
 
 get_mute_status

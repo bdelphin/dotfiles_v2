@@ -44,80 +44,12 @@ alert = #bd2c40
 transparent = #00000000
 line = #ffb52a
 
-[bar/dp_bottom]
-monitor = ${env:MONITOR:DP-1}
-width = 100%
-height = 35
-bottom = true
-;offset-x = 1%
-;offset-y = 1%
-fixed-center = false
-background = ${colors.transparent}
-foreground = ${colors.foreground}
-line-size = 3
-line-color = #f00
-padding-left = 0
-padding-right = 0
-module-margin-left = 1
-module-margin-right = 2
-font-0 = xos4 Terminus:size=16:style=bold;2
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=14;1
-font-3 = FontAwesome5Free:style=Solid:size=10;2
-modules-left = i3
-modules-center = 
-modules-right =
-override-redirect = true
-cursor-click = pointer
-cursor-scroll = ns-resize
-
-[bar/dvi_bottom]
-monitor = ${env:MONITOR:DVI-I-1}
-width = 100% 
-height = 35
-bottom = true
-;offset-x = 92%
-;offset-y = 1%
-fixed-center = false
-background = ${colors.transparent}
-foreground = ${colors.foreground}
-line-size = 3
-line-color = #f00
-padding-left = 1
-padding-right = 0 
-module-margin-left = 1
-module-margin-right = 2
-font-0 = xos4 Terminus:size=16:style=bold;2
-font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=14;1
-font-3 = FontAwesome5Free:style=Solid:size=10;2
-modules-left = 
-modules-center = 
-modules-right = i3 
-override-redirect = true
-cursor-click = pointer
-cursor-scroll = ns-resize
-
-[bar/secondary]
-inherit = bar/dvi_bottom
-offset-x = 0
-offset-y = 35
-height = 25
-background = ${colors.transparent}
-foreground = ${colors.foreground}
-
-padding = 1
-module-margin-left = 0
-module-margin-right = 0
-
 modules-right = xwindow
 
-[bar/dvi]
-monitor = ${env:MONITOR:DVI-I-1}
+[bar/dp]
+monitor = ${env:MONITOR:DisplayPort-0}
 width = 100%
 height = 30
-;offset-x = 1%
-;offset-y = 1%
 fixed-center = false
 background = ${colors.transparent}
 foreground = ${colors.foreground}
@@ -126,33 +58,32 @@ padding-left = 0
 padding-right = 0
 module-margin-left = 0
 module-margin-right = 0
-
-font-0 = xos4 Terminus:size=16:style=bold;1
+font-0 = xos4 Terminus:size=14:style=bold;1
 font-1 = FontAwesome5Free:style=Solid:size=10;0
 font-2 = Iosevka Nerd Font:style=Medium:size=26;13
-
 modules-left = i3 right-end-top
 modules-center = 
-modules-right = left-end-top updates sep mute_mic sep filesystem sep cpu sep memory sep pulseaudio sep wlan sep date
+modules-right = left-end-top updates sep mute_mic sep filesystem sep cpu sep memory sep pulseaudio sep eth sep date
 tray-position = right
 tray-padding = 0
 tray-background = ${colors.background-alt}
-;tray-background = #0063ff
-;wm-restack = bspwm
-;wm-restack = i3
 override-redirect = false
-;scroll-up = bspwm-desknext
-;scroll-down = bspwm-deskprev
-;scroll-up = i3wm-wsnext
-;scroll-down = i3wm-wsprev
 cursor-click = pointer
 cursor-scroll = ns-resize
 ;separator = "%{B#444} | %{B-}"
 separator-background = ${colors.background-alt}
 
-[bar/dp]
-inherit = bar/dvi
-monitor = ${env:MONITOR:DP-1}
+[bar/hdmi]
+inherit = bar/dp
+monitor = ${env:MONITOR:DisplayPort-2}
+modules-left = i3 right-end-top
+modules-center = 
+modules-right = left-end-top date
+tray-position = none
+
+[bar/dvi]
+inherit = bar/dp
+monitor = ${env:MONITOR:DisplayPort-1}
 modules-left = i3 right-end-top
 modules-center = 
 modules-right = left-end-top date
@@ -311,7 +242,7 @@ label = %percentage_used:2%%
 
 [module/wlan]
 type = internal/network
-interface = wlp3s0
+interface = wlp7s0
 interval = 3.0
 format-connected-overline = ${colors.line}
 format-disconnected-overline = ${colors.line}
@@ -345,19 +276,22 @@ ramp-signal-foreground-5 = #339900
 
 [module/eth]
 type = internal/network
-interface = enp4s0
+interface = enp5s0
 interval = 3.0
 
 format-connected-underline = #55aa55
-format-connected-prefix = " "
+;format-connected-prefix = ""
 format-connected-prefix-foreground = ${colors.foreground-alt}
-label-connected = %local_ip%
+;label-connected = %local_ip%
+label-connected = 
+format-connected-background = ${colors.background-alt}
 
-format-disconnected =
+format-disconnected = lan 
 ;format-disconnected = <label-disconnected>
 ;format-disconnected-underline = ${self.format-connected-underline}
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
+format-disconnected-background = ${colors.background-alt}
 
 [module/date]
 type = internal/date
