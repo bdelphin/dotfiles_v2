@@ -96,7 +96,10 @@ bindsym $mod+space exec ~/scripts/wali_v2 -i ~/Images/Wallpapers/ultrawide/selec
 bindsym $mod+a focus parent
 
 # Display mode switcher
-bindsym $mod+p exec ~/scripts/rofi_display_mode_desk.sh
+bindsym $mod+Shift+p exec ~/scripts/rofi_display_mode_desk.sh
+
+# Rofi-pass
+bindsym $mod+p exec ~/scripts/rofi-pass-simplified.sh
 
 # focus the child container
 #bindsym $mod+d focus child
