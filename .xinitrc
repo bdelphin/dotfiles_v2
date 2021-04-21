@@ -38,12 +38,14 @@ fi
 #xterm -geometry 80x20+494-0 &
 #exec xterm -geometry 80x66+0+0 -name login
 
-xrandr --dpi 200
+xrandr --dpi 100
+
+xset dpms 0 0 0 && xset s noblank  && xset s off
 
 numlockx &
 
-udiskie &
+#udiskie &
 
-mpd
+#mpd
 
 exec i3

@@ -1,6 +1,8 @@
-:root {
---bg-color: #0092f7;
-}
+@import url('file:///home/baptiste/.mozilla/firefox/63dcshou.default-release/chrome/resources/colors.css')
+
+/*:root {
+--bg-color: #b800cf;
+}*/
 
 /*#back-button, */
 #bookmark-button, #reload-button, #home-button, #forward-button, #identity-box {

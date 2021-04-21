@@ -15,3 +15,4 @@ fi
 
 
 [[ -f ~/.bashrc ]] && . ~/.bashrc
+source "$HOME/.cargo/env"

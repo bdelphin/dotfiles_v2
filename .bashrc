@@ -4,8 +4,8 @@
 
 
 # Pepper NaoQi Python SQK
-export PYTHONPATH="/opt/pynaoqi-python2.7-2.5.7.1-linux64/lib/python2.7/site-packages"
-export QI_SDK_PREFIX="/opt/pynaoqi-python2.7-2.5.7.1-linux64"
+#export PYTHONPATH="/opt/pynaoqi-python2.7-2.5.7.1-linux64/lib/python2.7/site-packages"
+#export QI_SDK_PREFIX="/opt/pynaoqi-python2.7-2.5.7.1-linux64"
 
 
 # pywal thingy
@@ -24,7 +24,7 @@ export bgpolybar_alpha="#BB${color0/'#'}"
 
 alias dd='dd status=progress'
 
-alias ls='ls --color=auto'
+alias ls='ls -alh --color=auto'
 alias lsa='ls -alh --color=auto'
 alias neo='clear;neofetch;echo -e "There'"'"'s no place like 127.0.0.1.\n"'
 
@@ -38,6 +38,8 @@ alias getmon='i3-msg -t get_workspaces | jq ".[] | select(.focused==true).name"'
 
 alias ssh='clear && ssh'
 
+alias cls='clear'
+
 alias clock='tty-clock -s -C 1 -c -B -f "%d/%m/%Y - Week No. %M"'
 
 #PS1='[\u@\h \W]\$ '
@@ -45,3 +47,4 @@ PS1='\[\e[31m\]\u\[\e[m\] / \[\e[31m\]\w\[\e[m\] > '
 
 #ugly, disabled
 #date +%H:%M | toilet -F metal -f future
+source "$HOME/.cargo/env"

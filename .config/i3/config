@@ -229,6 +229,10 @@ exec_always --no-startup-id $HOME/.config/picom/launch.sh
 # feh multiscreen
 exec_always --no-startup-id $HOME/scripts/feh_ultrawide.sh
 
+# GLava
+exec_always --no-startup-id $HOME/.config/glava/launch.sh
+#exec_always --no-startup-id sh -c 'sleep 10 && glava --desktop'
+
 # THUNAR FLOATING
 #for_window [class="Thunar" instance="thunar"] floating enable
 
