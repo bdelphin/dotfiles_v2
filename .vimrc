@@ -18,6 +18,7 @@ Plugin 'scrooloose/nerdtree'
 Plugin 'mattn/emmet-vim'
 Plugin 'nelsyeung/twig.vim'
 Plugin 'gorodinskiy/vim-coloresque'
+Plugin 'webdevel/tabulous'
 
 " All of your Plugins must be added before the following line
 call vundle#end()            " required

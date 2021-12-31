@@ -28,10 +28,42 @@ content = "%{T3} %{T-}"
 inherit = module/decor-glyph
 content = "%{T3} %{T-}"
 
+[module/reflex]
+type = custom/script
+exec = ~/.config/polybar/scripts/reflex.sh interactive
+click-left = ~/.config/polybar/scripts/reflex.sh toggle
+format-background = ${colors.background-alt}
+format-foreground = ${colors.foreground}
+format-overline = ${colors.line}
+tail = true
+interval = 5
+
 [module/mute_mic]
 type = custom/script
 exec = ~/.config/polybar/scripts/mute_mic.sh interactive
 click-left = ~/.config/polybar/scripts/mute_mic.sh toggle
+format-background = ${colors.background-alt}
+format-foreground = ${colors.foreground}
+format-overline = ${colors.line}
+tail = true
+interval = 5
+
+[module/jack_volume]
+type = custom/script
+exec = ~/.config/polybar/scripts/jack_volume.sh interactive
+click-left = ~/.config/polybar/scripts/jack_volume.sh mute_toggle
+scroll-up = ~/.config/polybar/scripts/jack_volume.sh scroll-up %counter%
+scroll-down = ~/.config/polybar/scripts/jack_volume.sh scroll-down %counter%
+format-background = ${colors.background-alt}
+format-foreground = ${colors.foreground}
+format-overline = ${colors.line}
+tail = true
+interval = 5
+
+[module/glava]
+type = custom/script
+exec = ~/.config/polybar/scripts/glava_toggle.sh interactive
+click-left = ~/.config/polybar/scripts/glava_toggle.sh toggle
 format-background = ${colors.background-alt}
 format-foreground = ${colors.foreground}
 format-overline = ${colors.line}

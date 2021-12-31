@@ -46,7 +46,7 @@
     background-color: @background;
     border:           0;
     padding:          0;
-    font:             "lucy tewi2a regular 9";
+    font:             "Terminus Bold 12";
 }
 #mainbox {
     border:  0;
@@ -67,6 +67,11 @@
     spacing:      2px ;
     scrollbar:    true;
     padding:      2px 0px 0px ;
+}
+element-text {
+    background-color: inherit;
+    text-color:       inherit;
+    margin: 0 0 0 10px;
 }
 #element {
     border:  0;

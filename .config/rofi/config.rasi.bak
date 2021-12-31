@@ -1,6 +1,5 @@
-@theme "~/.cache/wal/colors-rofi-dark.rasi"
-
 configuration {
+	theme: "~/.cache/wal/colors-rofi-dark.rasi";
 	show-icons: true;
 	icon-theme: "Adwaita";
 /*	modi: "window,run,ssh";*/

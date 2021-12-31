@@ -233,6 +233,9 @@ exec_always --no-startup-id $HOME/scripts/feh_ultrawide.sh
 exec_always --no-startup-id $HOME/.config/glava/launch.sh
 #exec_always --no-startup-id sh -c 'sleep 10 && glava --desktop'
 
+# Jack
+exec --no-startup-id $HOME/scripts/start_jack.sh
+
 # THUNAR FLOATING
 #for_window [class="Thunar" instance="thunar"] floating enable
 
@@ -250,6 +253,18 @@ for_window [title="^Android Emulator - Pixel_3_API_29:5554$"] floating enable
 
 # ARDUINO SERIAL MONITOR
 for_window [class="processing-app-Base" title="/dev/ttyUSB0"] floating enable
+
+# JACK MIXER
+for_window [class="Jack_mixer"] floating enable
+
+# QJACKCTL
+for_window [class="QjackCtl"] floating enable
+
+# CARLA
+for_window [class="Carla2"] floating enable
+
+# AUDIO WORKSPACE LAYOUT
+exec --no-startup-id "i3-msg 'workspace 12; append_layout /home/baptiste/.config/i3/workspace-audio.json'"
 
 # GAPS
 gaps inner 20
@@ -274,3 +289,5 @@ client.urgent           #2f343a #900000 #ffffff #900000   #900000
 client.placeholder      #000000 #0c0c0c #ffffff #000000   #0c0c0c
 
 client.background       #ffffff
+
+for_window [class="^.*"] border pixel 2

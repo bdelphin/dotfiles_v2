@@ -24,7 +24,7 @@ then
 	if [ $STATUS = "no" ]
 	then
 		pacmd set-source-mute $(pacmd list-sources | grep "*" | awk '{ print $3 }') 1
-		echo $MUTED_ICON
+		echo "%{F#555}$MUTED_ICON%{F-}"
 	else
 		pacmd set-source-mute $(pacmd list-sources | grep "*" | awk '{ print $3 }') 0
 		echo $UNMUTE_ICON
@@ -38,7 +38,7 @@ then
 		then
 			echo $UNMUTE_ICON
 		else
-			echo $MUTED_ICON
+			echo "%{F#555}$MUTED_ICON%{F-}"
 		fi
 		sleep 1
 	done
@@ -48,7 +48,7 @@ else
 	then
 		echo $UNMUTE_ICON
 	else
-		echo $MUTED_ICON
+		echo "%{F#555}$MUTED_ICON%{F-}"
 	fi
 fi
 

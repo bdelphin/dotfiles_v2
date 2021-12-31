@@ -1,0 +1,124 @@
+// vim:ts=4:sw=4:et
+{
+    // floating_con with 1 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splith",
+    "marks": [],
+    "percent": null,
+    "rect": {
+       "height": 558,
+       "width": 541,
+       "x": 5101,
+       "y": 97
+    },
+    "type": "floating_con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 2,
+            "floating": "user_on",
+            "geometry": {
+               "height": 420,
+               "width": 420,
+               "x": 0,
+               "y": 0
+            },
+            "marks": [],
+            "name": "jack_mixer",
+            "percent": 1,
+            "swallows": [
+               {
+                "class": "^Jack_mixer$"
+               // "instance": "^jack_mixer$",
+               // "machine": "^archDesk$",
+               // "title": "^jack_mixer$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+{
+    // floating_con with 1 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splith",
+    "marks": [],
+    "percent": null,
+    "rect": {
+       "height": 108,
+       "width": 559,
+       "x": 4532,
+       "y": 547
+    },
+    "type": "floating_con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 2,
+            "floating": "user_on",
+            "geometry": {
+               "height": 104,
+               "width": 538,
+               "x": 703,
+               "y": 166
+            },
+            "marks": [],
+            "name": "JACK Audio Connection Kit [(default)] Actif. — QjackCtl",
+            "percent": 1,
+            "swallows": [
+               {
+                "class": "^QjackCtl$"
+               // "instance": "^qjackctl$",
+               // "machine": "^archDesk$",
+               // "title": "^JACK\\ Audio\\ Connection\\ Kit\\ \\[\\(default\\)\\]\\ Actif\\.\\ \\—\\ QjackCtl$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
+{
+    // floating_con with 1 children
+    "border": "pixel",
+    "floating": "auto_off",
+    "layout": "splith",
+    "marks": [],
+    "percent": null,
+    "rect": {
+       "height": 441,
+       "width": 701,
+       "x": 4390,
+       "y": 95
+    },
+    "type": "floating_con",
+    "nodes": [
+        {
+            "border": "pixel",
+            "current_border_width": 2,
+            "floating": "user_on",
+            "geometry": {
+               "height": 456,
+               "width": 690,
+               "x": 3984,
+               "y": 513
+            },
+            "marks": [],
+            "name": "Carla - carla_rack.carxp",
+            "percent": 1,
+            "swallows": [
+               {
+               "class": "^Carla2$"
+               // "instance": "^carla$",
+               // "machine": "^archDesk$",
+               // "title": "^Carla\\ \\-\\ carla_rack\\.carxp$"
+               }
+            ],
+            "type": "con"
+        }
+    ]
+}
+
