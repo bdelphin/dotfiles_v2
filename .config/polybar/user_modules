@@ -38,6 +38,26 @@ format-overline = ${colors.line}
 tail = true
 interval = 5
 
+[module/php_version]
+type = custom/script
+exec = ~/.config/polybar/scripts/php_version.sh interactive
+click-left = ~/.config/polybar/scripts/php_version.sh toggle
+format-background = ${colors.background-alt}
+format-foreground = ${colors.foreground}
+format-overline = ${colors.line}
+tail = true
+interval = 5
+
+[module/vnc_screenshare]
+type = custom/script
+exec = ~/.config/polybar/scripts/screenshare_vnc.sh interactive
+click-left = ~/.config/polybar/scripts/screenshare_vnc.sh toggle
+format-background = ${colors.background-alt}
+format-foreground = ${colors.foreground}
+format-overline = ${colors.line}
+tail = true
+interval = 5
+
 [module/mute_mic]
 type = custom/script
 exec = ~/.config/polybar/scripts/mute_mic.sh interactive

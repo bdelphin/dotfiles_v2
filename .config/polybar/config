@@ -63,7 +63,7 @@ font-1 = FontAwesome5Free:style=Solid:size=10;0
 font-2 = Iosevka Nerd Font:style=Medium:size=26;13
 modules-left = i3 right-end-top
 modules-center = 
-modules-right = left-end-top updates sep reflex sep mute_mic sep glava sep filesystem sep cpu sep memory sep pulseaudio sep jack_volume sep eth sep date
+modules-right = left-end-top updates sep php_version sep reflex sep vnc_screenshare sep mute_mic sep glava sep filesystem sep cpu sep memory sep pulseaudio sep eth sep date
 tray-position = right
 tray-padding = 0
 tray-background = ${colors.background-alt}
